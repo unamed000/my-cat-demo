@@ -26,6 +26,8 @@ namespace MyCats.iOS
             MyOrg.Storage.Secure.Startup.LinkMePlease();
             MyOrg.Api.Cats.Client.Startup.LinkMePlease();
             MyOrg.Api.Core.Startup.LinkMePlease();
+            MyOrg.Forms.Core.iOS.Startup.LinkMePlease();
+            
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
 
             global::Xamarin.Forms.Forms.Init();

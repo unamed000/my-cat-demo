@@ -17,7 +17,8 @@ namespace MyCats.ViewModels
 
         private readonly IGetAllBreedUseCase _getAllBreedsUseCase;
         private ObservableCollection<CatBreedItem> _items;
-
+        private bool _firstLoading = true;
+        private ICommand _refreshCommand;
         public CatBreedsViewModel(IGetAllBreedUseCase getAllBreedsUseCase, INavigationService navigationService) : base(navigationService)
         {
             _getAllBreedsUseCase = getAllBreedsUseCase;
@@ -33,15 +34,14 @@ namespace MyCats.ViewModels
             }
         }
 
-        public ICommand RefreshCommand => new Command(() => RefreshData());
-
-        public  ICommand OnCatClickedCommand => new Command(() => CatClick(SelectedCat));
-
-        public CatBreedItem SelectedCat { get; set; }
-
-        private void CatClick(CatBreedItem cat)
+        public ICommand RefreshCommand
         {
-            NavigationService.NavigateToUrl(nameof(CatDetailPage), new { catId = cat.Id });
+            get => _refreshCommand;
+            set
+            {
+                _refreshCommand = value;
+                OnPropertyChanged(nameof(RefreshCommand));
+            }
         }
 
         public async Task RefreshData()
@@ -57,6 +57,18 @@ namespace MyCats.ViewModels
                 // TODO: Show some cool ui here?
                 IsBusy = false;
             });
+        }
+        
+        public override async void OnPageAppearing()
+        {
+            base.OnPageAppearing();
+
+            if (_firstLoading)
+            {
+                await RefreshData();
+                RefreshCommand = new Command(() => RefreshData());
+                _firstLoading = false;
+            }
         }
     }
 }

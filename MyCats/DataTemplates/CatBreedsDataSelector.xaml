@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataTemplates:ShimmerDataTemplateSelector
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MyCats.DataTemplates.CatBreedsDataSelector"
+    xmlns:forms="http://xamarin.com/schemas/2014/forms"
+    xmlns:dataTemplates="clr-namespace:MyOrg.Forms.Core.DataTemplates;assembly=MyOrg.Forms.Core"
+    xmlns:cat="clr-namespace:MyCats.Models.Cat;assembly=MyCats"
+    xmlns:forms1="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:shimmer="clr-namespace:MyOrg.Forms.Core.Plugins.Shimmer;assembly=MyOrg.Forms.Core">
+    <dataTemplates:ShimmerDataTemplateSelector.Content>
+        <DataTemplate x:DataType="cat:CatBreedItem">
+            <Frame BackgroundColor="{StaticResource bgColor2}" Padding="0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding OnCatClickedCommand}"
+                        CommandParameter="{Binding .}"/>
+                </Frame.GestureRecognizers>
+                <StackLayout HeightRequest="300" Spacing="0">
+                    <forms1:CachedImage
+                        CacheType="Disk"
+                        DownsampleHeight="500"
+                        HorizontalOptions="Fill"
+                        HeightRequest="270"
+                        Source="{Binding ImageUrl}"
+                        Aspect="AspectFill" />
+                    <Label 
+                        Padding="10,0"
+                        HeightRequest="30"
+                        Text="{Binding Name}" 
+                        LineBreakMode="NoWrap" 
+                        Style="{DynamicResource ListItemTextStyle}" 
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        FontSize="16" />
+                </StackLayout>
+            </Frame>
+        </DataTemplate>
+    </dataTemplates:ShimmerDataTemplateSelector.Content>
+    <dataTemplates:ShimmerDataTemplateSelector.Skeleton>
+        <DataTemplate>
+            <forms:Frame
+                Margin="1"
+                Padding="10"
+                BorderColor="LightGray"
+                CornerRadius="6"
+                HasShadow="False">
+                <shimmer:LearnerShimmer
+                    HeightRequest="300"
+                    Type="Profile"
+                />
+            </forms:Frame>
+        </DataTemplate>
+    </dataTemplates:ShimmerDataTemplateSelector.Skeleton>
+</dataTemplates:ShimmerDataTemplateSelector>

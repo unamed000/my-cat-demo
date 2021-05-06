@@ -13,11 +13,6 @@ namespace MyOrg.Forms.Core
         public MyOrgFormsApplication()
         {
             StartupAttributeReader.ExecuteAction(startup => startup.RegisterDependency(), IncludeAssemblyNames);
-        }
-
-        protected override void OnStart()
-        {
-            base.OnStart();
             StartupAttributeReader.ExecuteAction(startup => startup.OnAppStart(), IncludeAssemblyNames);
         }
     }

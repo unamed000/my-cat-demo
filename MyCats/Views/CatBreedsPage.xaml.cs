@@ -9,7 +9,6 @@ namespace MyCats.Views
         public CatBreedsPage()
         {
             InitializeComponent();
-            ViewModel.RefreshData();
         }
 
         protected override CatBreedsViewModel BuildViewModel()

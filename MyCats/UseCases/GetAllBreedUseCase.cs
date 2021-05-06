@@ -26,15 +26,8 @@ namespace MyCats.UseCases
         {
             var items = await _catsClient.GetCatBreeds();
 
-            try
-            {
-                var result = items.Select(TransformToCatBreed).ToArray();
-                return result;
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
+            var result = items.Select(TransformToCatBreed).ToArray();
+            return result;
         }
 
         private CatBreedItem TransformToCatBreed(CatBreedDTO dto)
@@ -43,7 +36,7 @@ namespace MyCats.UseCases
             {
                 Id = dto.id,
                 Name = dto.name,
-                ImageUrl = !string.IsNullOrEmpty(dto.Image?.url) ? ImageSource.FromUri(new Uri(dto.Image.url)) : null
+                ImageUrl = dto.Image?.url
             };
         }
     }

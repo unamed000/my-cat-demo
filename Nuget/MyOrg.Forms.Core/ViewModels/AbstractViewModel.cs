@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using MyOrg.Forms.Core.Navigation;
+using Xamarin.Essentials;
 
 namespace MyOrg.Forms.Core.ViewModels
 {
@@ -19,7 +20,7 @@ namespace MyOrg.Forms.Core.ViewModels
         public virtual string Title => string.Empty;
 
         
-        private bool _isBusy;
+        private bool _isBusy = false;
 
         public bool IsBusy
         {
@@ -49,6 +50,11 @@ namespace MyOrg.Forms.Core.ViewModels
                 // TODO: This is the place we should write some logging to our server or a third party service (Raygun) for example
                 onFailure(e);
             }
+        }
+
+        public virtual void OnPageAppearing()
+        {
+            
         }
     }
 }

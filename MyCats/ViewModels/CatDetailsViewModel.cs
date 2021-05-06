@@ -15,6 +15,8 @@ namespace MyCats.ViewModels
         private CatBreedDetailsItem _cat;
         private readonly IGetBreedByIdUseCase _getBreedByIdUseCase;
         private bool _isLoadingError;
+        private ICommand _refreshCommand;
+        private bool _firstLoading = true;
 
         public bool LoadingError
         {
@@ -36,7 +38,15 @@ namespace MyCats.ViewModels
             }
         }
 
-        public ICommand RefreshCommand => new Command(() => LoadData());
+        public ICommand RefreshCommand
+        {
+            get => _refreshCommand;
+            set
+            {
+                _refreshCommand = value;
+                OnPropertyChanged(nameof(RefreshCommand));
+            }
+        }
 
         public CatDetailsViewModel(
             IGetBreedByIdUseCase getBreedByIdUseCase,
@@ -48,7 +58,10 @@ namespace MyCats.ViewModels
         public void ApplyQueryAttributes(IDictionary<string, string> query)
         {
             _catId = query["catId"];
-            LoadData();
+            LoadData().ContinueWith(task =>
+            {
+                RefreshCommand = new Command(() => LoadData());
+            });
         }
 
         public async Task LoadData()

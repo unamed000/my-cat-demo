@@ -5,8 +5,7 @@
        Title="MyCats"
        FlyoutBehavior="Disabled"
        x:Class="MyCats.AppShell"
-       BackgroundColor="{StaticResource bgColor1}"
->
+       BackgroundColor="{StaticResource bgColor2}">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -28,6 +27,7 @@
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
 

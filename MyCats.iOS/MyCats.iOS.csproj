@@ -159,6 +159,10 @@
       <Project>{a87f201d-0f92-4509-b2e1-b0c34c2d042f}</Project>
       <Name>MyOrg.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Nuget\MyOrg.Forms.Core.iOS\MyOrg.Forms.Core.iOS.csproj">
+      <Project>{5ab65657-5373-4e10-ad89-f9382ee05757}</Project>
+      <Name>MyOrg.Forms.Core.iOS</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Nuget\MyOrg.Forms.Core\MyOrg.Forms.Core.csproj">
       <Project>{bf159a78-a435-4293-b14c-ab585e8f4eba}</Project>
       <Name>MyOrg.Forms.Core</Name>

@@ -22,6 +22,9 @@ namespace MyOrg.Core
             where TF : class, T {
             _container.RegisterType<T, TF>();
         }
-
+        public static void RegisterSingleton<T, TF>()
+            where TF : class, T {
+            _container.RegisterSingleton<T, TF>();
+        }
     }
 }

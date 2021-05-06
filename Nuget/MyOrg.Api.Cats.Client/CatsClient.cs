@@ -34,11 +34,11 @@ namespace MyOrg.Api.Cats.Client
 
         public async Task<CatBreedDetailsDTO> GetCatBreedById(string id)
         {
-            var response = await GetHttpClient().GetAsync("/v1/images/search?breed_ids=beng").ConfigureAwait(false);
+            var response = await GetHttpClient().GetAsync($"/v1/images/search?breed_ids={id}").ConfigureAwait(false);
             response.EnsureSuccessStatusCode();
             var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
-            return JsonConvert.DeserializeObject<CatBreedDetailsDTO>(result);
+            return JsonConvert.DeserializeObject<CatBreedDetailsDTO[]>(result)?[0];
         }
     }
 }

@@ -1,12 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nuget\MyOrg.Api.Cats.Client\MyOrg.Api.Cats.Client.csproj" />
+    <ProjectReference Include="..\Nuget\MyOrg.Forms.Core\MyOrg.Forms.Core.csproj" />
+    <ProjectReference Include="..\Nuget\MyOrg.Storage.Secure\MyOrg.Storage.Secure.csproj" />
   </ItemGroup>
 </Project>

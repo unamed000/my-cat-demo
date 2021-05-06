@@ -9,6 +9,7 @@ namespace MyOrg.Api.Cats.Client
     [Preserve(AllMembers = true)]
     public class Startup : IStartup
     {
+        public static void LinkMePlease() {}
         public void RegisterDependency()
         {
             MyOrgContainer.RegisterType<ICatsClient, CatsClient>();

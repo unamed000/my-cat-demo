@@ -1,32 +1,20 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using MyCats.Services;
-using MyCats.Views;
+﻿using Xamarin.Forms;
+using MyOrg.Forms.Core;
 
 namespace MyCats
 {
-    public partial class App : Application
+    public partial class App : MyOrgFormsApplication
     {
+        protected override string[] IncludeAssemblyNames => new[]
+        {
+            nameof(MyCats)
+        };
 
         public App()
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
-        }
-
-        protected override void OnStart()
-        {
-        }
-
-        protected override void OnSleep()
-        {
-        }
-
-        protected override void OnResume()
-        {
         }
     }
 }

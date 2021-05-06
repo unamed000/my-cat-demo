@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<core:MyOrgPage x:TypeArguments="local:CatBreedsViewModel" 
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="MyCats.Views.CatBreedsPage"
+                Title="{Binding Title}"
+                xmlns:local="clr-namespace:MyCats.ViewModels"  
+                xmlns:model="clr-namespace:MyCats.Models"
+                xmlns:core="clr-namespace:MyOrg.Forms.Core;assembly=MyOrg.Forms.Core"
+                xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                xmlns:cat="clr-namespace:MyCats.Models.Cat;assembly=MyCats"
+                x:Name="BrowseItemsPage"
+                x:DataType="local:CatBreedsViewModel"
+                BackgroundColor="{StaticResource bgColor1}">
+    
+    <RefreshView 
+                 Command="{Binding RefreshCommand}" 
+                 IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <ContentView Padding="10">
+            <CollectionView
+                            ItemsSource="{Binding Items}"
+                            SelectedItem="{Binding SelectedCat, Mode=TwoWay}"
+                            SelectionMode="Single"
+                            SelectionChangedCommand="{Binding OnCatClickedCommand}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" HorizontalItemSpacing="10" VerticalItemSpacing="10"
+                                     Span="2" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="cat:CatBreedItem">
+                        <Frame BackgroundColor="{StaticResource bgColor2}" Padding="0">
+                            <StackLayout HeightRequest="300" Spacing="0">
+                                <forms:CachedImage
+                                    CacheType="Disk"
+                                    DownsampleHeight="500"
+                                    HorizontalOptions="Fill"
+                                    HeightRequest="270"
+                                    Source="{Binding ImageUrl}"
+                                    Aspect="AspectFill" />
+                                <Label 
+                                    Padding="10"
+                                    HeightRequest="30"
+                                    Text="{Binding Name}" 
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    FontSize="16" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ContentView>
+    </RefreshView>
+</core:MyOrgPage>

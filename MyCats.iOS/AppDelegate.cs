@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using FFImageLoading.Forms;
 using Foundation;
+using MyOrg.Storage.Secure;
 using UIKit;
 
 namespace MyCats.iOS
@@ -22,6 +23,11 @@ namespace MyCats.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            MyOrg.Storage.Secure.Startup.LinkMePlease();
+            MyOrg.Api.Cats.Client.Startup.LinkMePlease();
+            MyOrg.Api.Core.Startup.LinkMePlease();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

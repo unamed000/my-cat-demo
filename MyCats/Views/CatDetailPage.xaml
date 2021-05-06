@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<core:MyOrgPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="clr-namespace:MyOrg.Forms.Core;assembly=MyOrg.Forms.Core"
+             xmlns:viewModels="clr-namespace:MyCats.ViewModels;assembly=MyCats"
+             xmlns:converters="clr-namespace:MyOrg.Forms.Core.Converters;assembly=MyOrg.Forms.Core"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="MyCats.Views.CatDetailPage"
+             Title="{Binding Title}"
+             x:TypeArguments="viewModels:CatDetailsViewModel"
+             BackgroundColor="{StaticResource bgColor1}"
+             x:DataType="viewModels:CatDetailsViewModel">
+    
+    <RefreshView 
+        Command="{Binding RefreshCommand}" 
+        IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <ScrollView>
+            <Grid>
+                <Label 
+                    IsVisible="{Binding LoadingError}"
+                    FontSize="25"
+                    HorizontalOptions="Center" 
+                    HorizontalTextAlignment="Center" 
+                    Text="This is failing by purpose if you are choosing an aege cat" />
+                <StackLayout Spacing="20" Padding="15" IsVisible="{Binding LoadingError, Converter={converters:InverseBooleanConverter}}">
+                    <StackLayout Spacing="10">
+                        <forms:CachedImage
+                            CacheType="Disk"
+                            DownsampleHeight="500"
+                            HorizontalOptions="Fill"
+                            HeightRequest="270"
+                            Source="{Binding Cat.ImageUrl}"
+                            Aspect="AspectFill" />
+                        <Label 
+                            HeightRequest="30"
+                            Text="{Binding Cat.Name}" 
+                            LineBreakMode="NoWrap" 
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            FontSize="25" />
+                    
+                        <Label 
+                            Text="{Binding Cat.Description}" 
+                            LineBreakMode="NoWrap" 
+                            MaxLines="0"
+                            FontSize="16" />
+                        
+                        <Label 
+                            FontSize="11"
+                            Text="Pull to refresh to have new image"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </RefreshView>
+
+    
+</core:MyOrgPage>

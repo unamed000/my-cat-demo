@@ -17,12 +17,12 @@ namespace MyOrg.Core.UnitTest
         [Test]
         public void ExecuteActionTest()
         {
-            StartupAttributeReader.ExecuteAction(GetType().Assembly, startup => startup.RegisterDependency());
-            StartupAttributeReader.ExecuteAction(GetType().Assembly, startup => startup.RegisterDependency());
+            StartupAttributeReader.ExecuteAction(startup => startup.RegisterDependency());
+            StartupAttributeReader.ExecuteAction(startup => startup.RegisterDependency());
             
-            StartupAttributeReader.ExecuteAction(GetType().Assembly, startup => startup.OnAppStart());
-            StartupAttributeReader.ExecuteAction(GetType().Assembly, startup => startup.OnAppStart());
-            StartupAttributeReader.ExecuteAction(GetType().Assembly, startup => startup.OnAppStart());
+            StartupAttributeReader.ExecuteAction(startup => startup.OnAppStart());
+            StartupAttributeReader.ExecuteAction(startup => startup.OnAppStart());
+            StartupAttributeReader.ExecuteAction(startup => startup.OnAppStart());
 
             Assert.AreEqual(2, RegisterDependency);
             Assert.AreEqual(3, OnAppStart);

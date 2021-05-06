@@ -3,9 +3,10 @@ using Unity;
 
 namespace MyOrg.Storage.Secure
 {
-    [MyOrg.Core.Preserve(AllMembers=true)]
+    [Preserve(AllMembers=true)]
     public class Startup : IStartup
     {
+        public static void LinkMePlease() {}
         public void RegisterDependency()
         {
             MyOrgContainer.RegisterType<IMyOrgSecureStorage, MyOrgSecureStorage>();

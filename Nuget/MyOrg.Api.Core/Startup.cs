@@ -4,12 +4,13 @@ using Unity;
 
 namespace MyOrg.Api.Core
 {
-    [Preserve(AllMembers = true)]
+    [Preserve(AllMembers=true)]
     public class Startup : IStartup
     {
+        public static void LinkMePlease() {}
         public void RegisterDependency()
         {
-            MyOrgContainer.RegisterType<IHttpClientProvider, HttpClientProvider>();
+            MyOrgContainer.RegisterSingleton<IHttpClientProvider, HttpClientProvider>();
         }
 
         public void OnAppStart()

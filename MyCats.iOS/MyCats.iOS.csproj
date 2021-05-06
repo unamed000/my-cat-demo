@@ -27,6 +27,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <MtouchExtraArgs>--linkskip=MyOrg.Api.Cats.Client</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -132,6 +133,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
@@ -140,6 +142,30 @@
     <ProjectReference Include="..\MyCats\MyCats.csproj">
       <Project>{A8112630-4127-49DB-9A2A-502FB5455293}</Project>
       <Name>MyCats</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nuget\MyOrg.Api.Cats.Client\MyOrg.Api.Cats.Client.csproj">
+      <Project>{ee831dac-4087-4903-8311-7fbfaa2fb666}</Project>
+      <Name>MyOrg.Api.Cats.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nuget\MyOrg.Api.Cats.Contract\MyOrg.Api.Cats.Contract.csproj">
+      <Project>{c721f149-0cbf-483f-889a-20766c314d8f}</Project>
+      <Name>MyOrg.Api.Cats.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nuget\MyOrg.Api.Core\MyOrg.Api.Core.csproj">
+      <Project>{b167e0b9-44e7-4fc3-bbb8-302007214f24}</Project>
+      <Name>MyOrg.Api.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nuget\MyOrg.Core\MyOrg.Core.csproj">
+      <Project>{a87f201d-0f92-4509-b2e1-b0c34c2d042f}</Project>
+      <Name>MyOrg.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nuget\MyOrg.Forms.Core\MyOrg.Forms.Core.csproj">
+      <Project>{bf159a78-a435-4293-b14c-ab585e8f4eba}</Project>
+      <Name>MyOrg.Forms.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nuget\MyOrg.Storage.Secure\MyOrg.Storage.Secure.csproj">
+      <Project>{9dd4943f-146f-4ea8-8bd8-067898d3c406}</Project>
+      <Name>MyOrg.Storage.Secure</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

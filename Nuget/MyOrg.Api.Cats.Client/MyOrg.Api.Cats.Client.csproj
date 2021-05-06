@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyOrg.Api.Cats.Contract\MyOrg.Api.Cats.Contract.csproj" />
+    <ProjectReference Include="..\MyOrg.Api.Core\MyOrg.Api.Core.csproj" />
+    <ProjectReference Include="..\MyOrg.Core\MyOrg.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>

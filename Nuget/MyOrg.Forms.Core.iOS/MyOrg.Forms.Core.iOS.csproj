@@ -65,6 +65,7 @@
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
+      <None Include="readme.txt" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\MyOrg.Forms.Core\MyOrg.Forms.Core.csproj">

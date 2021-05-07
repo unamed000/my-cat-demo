@@ -1,0 +1,1 @@
+﻿Same like Forms.Core. But this is for Xamarin.Forms.Android platform specific. It will contains all renderers, android specific implementation

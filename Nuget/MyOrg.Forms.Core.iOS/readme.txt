@@ -1,0 +1,1 @@
+﻿Same like Forms.Core. But this is for Xamarin.Forms.iOS platform specific. It will contains all renderers, ios specific implementation

@@ -1,7 +1,9 @@
+using System;
 using System.Windows.Input;
 using MyCats.Views;
 using MyOrg.Core;
 using MyOrg.Forms.Core.Navigation;
+using Sentry;
 using Xamarin.Forms;
 using ImageSource = Xamarin.Forms.ImageSource;
 
@@ -17,6 +19,7 @@ namespace MyCats.Models.Cat
 
         private void OnCatClicked()
         {
+            SentrySdk.CaptureMessage("This is a message", SentryLevel.Error);
             MyOrgContainer.Resolve<INavigationService>().NavigateToUrl(nameof(CatDetailPage), new { catId = Id });
         }
     }

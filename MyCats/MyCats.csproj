@@ -6,9 +6,40 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
+    <PackageReference Include="akavache" Version="7.2.1" />
+    <PackageReference Include="CommonServiceLocator" Version="2.0.6" />
+    <PackageReference Include="DynamicData" Version="7.1.16" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.33" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="NodaTime" Version="3.0.5" />
+    <PackageReference Include="PCLExt.FileStorage" Version="1.4.1.1" />
+    <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
+    <PackageReference Include="Plugin.PushNotification" Version="3.6.9" />
+    <PackageReference Include="Polly" Version="7.2.2" />
+    <PackageReference Include="ReactiveUI" Version="13.2.18" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.11" />
+    <PackageReference Include="Sentry.Xamarin.Forms" Version="1.0.3" />
+    <PackageReference Include="Splat" Version="11.0.1" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
+    <PackageReference Include="UnitsNet" Version="4.89.1" />
+    <PackageReference Include="Unity" Version="5.11.10" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="4.0.0.190-beta" />
+    <PackageReference Include="Xam.Plugin.ExternalMaps" Version="4.0.1" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2012" />
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+    <PackageReference Include="Plugin.Geofence" Version="1.8.11" />
+    <PackageReference Include="Optional" Version="4.0.0" />
+    <PackageReference Include="Refit" Version="5.2.4" />
+    <PackageReference Include="Analytics.MultiPlatformTest" Version="0.2.0" />
   </ItemGroup>
 
   <ItemGroup>

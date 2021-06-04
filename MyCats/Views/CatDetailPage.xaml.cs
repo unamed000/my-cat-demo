@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using Xamarin.Forms;
 using MyCats.ViewModels;
 using MyOrg.Core;
@@ -10,6 +11,11 @@ namespace MyCats.Views
         public CatDetailPage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
         }
 
         protected override CatDetailsViewModel BuildViewModel()
